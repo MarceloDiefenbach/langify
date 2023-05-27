@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DF2D6E1829FC266B005C6220 /* LocalizedStringGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalizedStringGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF2D6E1829FC266B005C6220 /* Langify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Langify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2D6E1B29FC266B005C6220 /* LocalizedStringGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStringGeneratorApp.swift; sourceTree = "<group>"; };
 		DF2D6E1D29FC266B005C6220 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		DF2D6E1F29FC266D005C6220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		DF2D6E1929FC266B005C6220 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DF2D6E1829FC266B005C6220 /* LocalizedStringGenerator.app */,
+				DF2D6E1829FC266B005C6220 /* Langify.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,9 +180,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DF2D6E1729FC266B005C6220 /* LocalizedStringGenerator */ = {
+		DF2D6E1729FC266B005C6220 /* Langify */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF2D6E2729FC266D005C6220 /* Build configuration list for PBXNativeTarget "LocalizedStringGenerator" */;
+			buildConfigurationList = DF2D6E2729FC266D005C6220 /* Build configuration list for PBXNativeTarget "Langify" */;
 			buildPhases = (
 				DF2D6E1429FC266B005C6220 /* Sources */,
 				DF2D6E1529FC266B005C6220 /* Frameworks */,
@@ -192,9 +192,9 @@
 			);
 			dependencies = (
 			);
-			name = LocalizedStringGenerator;
+			name = Langify;
 			productName = LocalizedStringGenerator;
-			productReference = DF2D6E1829FC266B005C6220 /* LocalizedStringGenerator.app */;
+			productReference = DF2D6E1829FC266B005C6220 /* Langify.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DF2D6E1329FC266B005C6220 /* Build configuration list for PBXProject "LocalizedStringGenerator" */;
+			buildConfigurationList = DF2D6E1329FC266B005C6220 /* Build configuration list for PBXProject "Langify" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -228,7 +228,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DF2D6E1729FC266B005C6220 /* LocalizedStringGenerator */,
+				DF2D6E1729FC266B005C6220 /* Langify */,
 			);
 		};
 /* End PBXProject section */
@@ -394,7 +394,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalizedStringGenerator/Preview Content\"";
 				DEVELOPMENT_TEAM = 6525BU9D84;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -407,7 +407,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcelo.langify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -424,7 +424,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalizedStringGenerator/Preview Content\"";
 				DEVELOPMENT_TEAM = 6525BU9D84;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -437,7 +437,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcelo.langify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -448,7 +448,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DF2D6E1329FC266B005C6220 /* Build configuration list for PBXProject "LocalizedStringGenerator" */ = {
+		DF2D6E1329FC266B005C6220 /* Build configuration list for PBXProject "Langify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF2D6E2529FC266D005C6220 /* Debug */,
@@ -457,7 +457,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF2D6E2729FC266D005C6220 /* Build configuration list for PBXNativeTarget "LocalizedStringGenerator" */ = {
+		DF2D6E2729FC266D005C6220 /* Build configuration list for PBXNativeTarget "Langify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF2D6E2829FC266D005C6220 /* Debug */,

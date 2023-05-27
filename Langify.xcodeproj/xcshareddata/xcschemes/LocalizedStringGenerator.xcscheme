@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DF2D6E1729FC266B005C6220"
-               BuildableName = "LocalizedStringGenerator.app"
-               BlueprintName = "LocalizedStringGenerator"
-               ReferencedContainer = "container:LocalizedStringGenerator.xcodeproj">
+               BuildableName = "Langify.app"
+               BlueprintName = "Langify"
+               ReferencedContainer = "container:Langify.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DF2D6E1729FC266B005C6220"
-            BuildableName = "LocalizedStringGenerator.app"
-            BlueprintName = "LocalizedStringGenerator"
-            ReferencedContainer = "container:LocalizedStringGenerator.xcodeproj">
+            BuildableName = "Langify.app"
+            BlueprintName = "Langify"
+            ReferencedContainer = "container:Langify.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DF2D6E1729FC266B005C6220"
-            BuildableName = "LocalizedStringGenerator.app"
-            BlueprintName = "LocalizedStringGenerator"
-            ReferencedContainer = "container:LocalizedStringGenerator.xcodeproj">
+            BuildableName = "Langify.app"
+            BlueprintName = "Langify"
+            ReferencedContainer = "container:Langify.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

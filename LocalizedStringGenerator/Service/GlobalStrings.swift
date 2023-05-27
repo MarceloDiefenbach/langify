@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class GlobalStrings {
+    
+    static let shared = GlobalStrings()
+    
+    let APIKEY = "APIKEY2"
+    
+}

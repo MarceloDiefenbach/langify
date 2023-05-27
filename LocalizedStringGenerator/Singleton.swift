@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+class LocalizedData {
+ 
+    static let shared = LocalizedData()
+    
+    
+}

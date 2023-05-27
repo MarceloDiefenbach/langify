@@ -21,17 +21,17 @@ struct TextView: View {
     
     @EnvironmentObject var viewModel: CoordinatorViewModel
     
-    @State var text: String = ""
     @State private var isChecked = false
-    @State private var localizedStrings: [String: String] = [:]
-    @State private var localizedTranslatedStrings: [String: String] = [:]
+    @State var selectedCategory: CategorySelector.Category = .english
+    let maxCharacters: Int = 1000
+    @State var isTranslating: Bool = false
     
     var body: some View {
         ZStack {
             HStack {
                 VStack {
                     Text("Paste here your default LocalizedStrings")
-                    TextEditor(text: $text)
+                    TextEditor(text: $viewModel.text)
                         .font(.body)
                         .background(Color.primary.colorInvert())
                         .cornerRadius(8)
@@ -40,11 +40,17 @@ struct TextView: View {
                                 .stroke(.black, lineWidth: 1 / 3)
                                 .opacity(0.3)
                         )
+                        .onChange(of: viewModel.text) { newText in
+                                        if newText.count > maxCharacters {
+                                            viewModel.text = String(newText.prefix(maxCharacters))
+                                        }
+                                    }
                     HStack {
-                        Toggle("English", isOn: $isChecked)
-                            .toggleStyle(CheckboxToggleStyle())
+                        Text("Translate to")
+                        CategorySelector(selectedCategory: $selectedCategory)
+
                         Spacer()
-                        Text("\(text.count)/1.000")
+                        Text("\(viewModel.text.count)/1.000")
                             .padding(.trailing, 8)
                         HStack {
                             Text("Translate")
@@ -55,8 +61,10 @@ struct TextView: View {
                         .background(.blue)
                         .cornerRadius(16)
                         .onTapGesture(perform: {
-                            TranslateService.shared.parseKeyValueStringTranslate(string: text, completion: { value in
-                                localizedTranslatedStrings = value
+                            self.isTranslating = true
+                            TranslateService.shared.parseKeyValueStringTranslate(string: viewModel.text, toLanguage: selectedCategory.rawValue, completion: { value in
+                                viewModel.translated = value
+                                self.isTranslating = false
                                 viewModel.currentPage = .result
                             })
                         })
@@ -64,6 +72,13 @@ struct TextView: View {
                 }
             }
             .padding(.all, 20)
+            if self.isTranslating {
+                ZStack {
+                    Color.blue.opacity(0.3)
+                    ProgressView("Translating")
+                        .padding()
+                }.ignoresSafeArea()
+            }
         }
     }
     
@@ -75,6 +90,39 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+struct CategorySelector: View {
+    enum Category: String, CaseIterable {
+        case english = "en"
+        case portuguese = "pt"
+        case spanish = "es"
+        case french = "fr"
+        
+        var title: String {
+            switch self {
+            case .english:
+                return "English"
+            case .portuguese:
+                return "Portuguese"
+            case .spanish:
+                return "Spanish"
+            case .french:
+                return "French"
+            }
+        }
+    }
+    
+    @Binding var selectedCategory: Category
+    
+    var body: some View {
+        Picker("", selection: $selectedCategory) {
+            ForEach(Category.allCases, id: \.self) { category in
+                Text(category.title).tag(category)
+            }
+        }
+        .pickerStyle(DefaultPickerStyle())
+    }
+}
+
 //"singleDeviceTitle" = "Um dispositivo";
 //"singleDeviceDescription" = "Jogue localmente";
 //"multiplayerTitle" = "Multiplayer";
@@ -82,4 +130,3 @@ struct ContentView_Previews: PreviewProvider {
 //"howToPlayButton" = "Como jogar?";
 //"storeButton" = "Loja";
 //"aboutUsButton" = "Sobre nós";
-

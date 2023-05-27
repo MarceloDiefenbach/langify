@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class CoordinatorViewModel: ObservableObject {
+
+    @Published var currentPage: WhatPage = .home
+    @Published var translated: [String: String] = [:]
+    @Published var text: String = "\"howToPlayButton\" = \"Como jogar?;"
+    
+}
