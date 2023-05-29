@@ -18,10 +18,8 @@ struct ResultView: View {
                 
                 ScrollView(.vertical) {
                     VStack(spacing: 10) {
-                        ForEach(viewModel.translated.sorted(by: { $0.key < $1.key }), id: \.key) { pair in
-                            Text("\(pair.key) = \(pair.value)").frame(width: 800)
-                                .foregroundColor(.white)
-                        }
+                        Text(viewModel.translated)
+                            .foregroundColor(.white)
                     }.padding(.top, 32)
                 }
                 .frame(maxHeight: 600)
@@ -34,7 +32,7 @@ struct ResultView: View {
                     }, isClear: true)
                     
                     LGButton(title: "Copy to clipboard", action: {
-                        TranslateService.shared.copyKeyValueStringToClipboard(from: TranslateService.shared.localizedTranslatedStrings)
+                        TranslateService.shared.copyKeyValueStringToClipboard()
                     }, isClear: false)
                     
                 }

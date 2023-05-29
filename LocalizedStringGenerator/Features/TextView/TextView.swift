@@ -50,8 +50,6 @@ struct TextView: View {
                         CategorySelector(selectedCategory: $selectedCategory)
 
                         Spacer()
-                        Text("\(viewModel.text.count)/1.000")
-                            .padding(.trailing, 8)
                         HStack {
                             Text("Translate")
                                 .foregroundColor(.white)
@@ -62,11 +60,29 @@ struct TextView: View {
                         .cornerRadius(16)
                         .onTapGesture(perform: {
                             self.isTranslating = true
-                            TranslateService.shared.parseKeyValueStringTranslate(string: viewModel.text, toLanguage: selectedCategory.rawValue, completion: { value in
-                                viewModel.translated = value
-                                self.isTranslating = false
-                                viewModel.currentPage = .result
-                            })
+                            
+                        
+                            TranslateService.shared.translateLocalizableStrings(text: viewModel.text, targetLanguage: selectedCategory.rawValue) { translatedText, error in
+                                if let error = error {
+                                    // Lidar com o erro
+                                    print("Erro durante a tradução: \(error)")
+                                    return
+                                }
+                                
+                                if let translatedText = translatedText {
+                                    // Faça algo com o texto traduzido retornado
+                                    DispatchQueue.main.async {
+                                        viewModel.translated = translatedText
+                                        self.isTranslating = false
+                                        print("Texto traduzido: \(viewModel.translated)")
+                                        viewModel.currentPage = .result
+                                        TranslateService.shared.copyKeyValueStringToClipboard()
+                                    }
+                                } else {
+                                    // Caso não seja possível obter o texto traduzido
+                                    print("Não foi possível obter o texto traduzido")
+                                }
+                            }
                         })
                     }
                 }
@@ -128,5 +144,6 @@ struct CategorySelector: View {
 //"multiplayerTitle" = "Multiplayer";
 //"multiplayerDescription" = "Vários disposivos onlie";
 //"howToPlayButton" = "Como jogar?";
+////MARK: - titulo da parte
 //"storeButton" = "Loja";
 //"aboutUsButton" = "Sobre nós";

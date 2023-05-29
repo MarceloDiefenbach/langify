@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF06C66C2A254DCB001871C9 /* SendFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF06C66B2A254DCB001871C9 /* SendFile.swift */; };
 		DF2D6E1C29FC266B005C6220 /* LocalizedStringGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D6E1B29FC266B005C6220 /* LocalizedStringGeneratorApp.swift */; };
 		DF2D6E1E29FC266B005C6220 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D6E1D29FC266B005C6220 /* TextView.swift */; };
 		DF2D6E2029FC266D005C6220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2D6E1F29FC266D005C6220 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF06C66B2A254DCB001871C9 /* SendFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFile.swift; sourceTree = "<group>"; };
 		DF2D6E1829FC266B005C6220 /* Langify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Langify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2D6E1B29FC266B005C6220 /* LocalizedStringGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStringGeneratorApp.swift; sourceTree = "<group>"; };
 		DF2D6E1D29FC266B005C6220 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				DF878A7C29FC919100811983 /* Home */,
 				DF878A7429FC840B00811983 /* Result */,
 				DFCDCFB929FDCB050058087F /* IconsView.swift */,
+				DF06C66B2A254DCB001871C9 /* SendFile.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				DF878A7929FC852100811983 /* CoordinatorView.swift in Sources */,
 				DF878A7029FC7F9500811983 /* UserSettings.swift in Sources */,
 				DF2D6E2F29FC2A8E005C6220 /* ChatCompletion.swift in Sources */,
+				DF06C66C2A254DCB001871C9 /* SendFile.swift in Sources */,
 				DF878A8229FC96A400811983 /* LGButton.swift in Sources */,
 				DFCDCFBA29FDCB050058087F /* IconsView.swift in Sources */,
 				DF878A7B29FC852B00811983 /* CoordinatorViewModel.swift in Sources */,
@@ -394,10 +398,10 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalizedStringGenerator/Preview Content\"";
 				DEVELOPMENT_TEAM = 6525BU9D84;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Langify;
@@ -424,10 +428,10 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalizedStringGenerator/Preview Content\"";
 				DEVELOPMENT_TEAM = 6525BU9D84;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Langify;

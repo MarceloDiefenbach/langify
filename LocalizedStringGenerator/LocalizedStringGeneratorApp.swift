@@ -14,9 +14,6 @@ struct LocalizedStringGeneratorApp: App {
             CoordinatorView()
                 .frame(width: 800, height: 600)
                 .preferredColorScheme(.dark)
-                .onAppear(){
-//                    GPTService.shared.verifyAPIKey(completion: { isValid in })
-                }
         }
     }
 }
