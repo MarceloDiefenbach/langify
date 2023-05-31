@@ -112,6 +112,9 @@ struct CategorySelector: View {
         case portuguese = "pt"
         case spanish = "es"
         case french = "fr"
+        case japanese = "ja"
+        case russian = "ru"
+        case korean = "ko"
         
         var title: String {
             switch self {
@@ -123,9 +126,16 @@ struct CategorySelector: View {
                 return "Spanish"
             case .french:
                 return "French"
+            case .japanese:
+                return "Japanese"
+            case .russian:
+                return "Russian"
+            case .korean:
+                return "Korean"
             }
         }
     }
+
     
     @Binding var selectedCategory: Category
     

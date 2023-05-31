@@ -23,7 +23,7 @@ class TranslateService {
     }
     
     func translateLocalizableStrings(text: String, targetLanguage: String, completion: @escaping (String?, Error?) -> Void) {
-        let urlString = "http://127.0.0.1:5000/translateFromJson"
+        let urlString = "https://gpt-treinador.herokuapp.com/translateFromJson"
         guard let url = URL(string: urlString) else {
             print("URL inválida: \(urlString)")
             completion(nil, nil) // Chame o completion handler com valores nulos para indicar o erro
