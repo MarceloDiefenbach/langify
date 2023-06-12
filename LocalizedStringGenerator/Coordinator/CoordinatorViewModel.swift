@@ -8,9 +8,7 @@
 import Foundation
 
 class CoordinatorViewModel: ObservableObject {
-
     @Published var currentPage: Page = .home
     @Published var translated: String = ""
     @Published var text: String = "\"howToPlayButton\" = \"Como jogar?\";"
-    
 }
