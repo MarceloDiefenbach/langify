@@ -14,7 +14,6 @@
 		DF2D6E2329FC266D005C6220 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2D6E2229FC266D005C6220 /* Preview Assets.xcassets */; };
 		DF2D6E2C29FC2995005C6220 /* GPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D6E2B29FC2995005C6220 /* GPTService.swift */; };
 		DF2D6E2F29FC2A8E005C6220 /* ChatCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D6E2E29FC2A8E005C6220 /* ChatCompletion.swift */; };
-		DF2D6E3129FC2B07005C6220 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D6E3029FC2B07005C6220 /* Singleton.swift */; };
 		DF3AE63429FD46660007BBEA /* GlobalStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3AE63329FD46660007BBEA /* GlobalStrings.swift */; };
 		DF878A7029FC7F9500811983 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878A6F29FC7F9500811983 /* UserSettings.swift */; };
 		DF878A7229FC829200811983 /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878A7129FC829200811983 /* TranslateService.swift */; };
@@ -36,7 +35,6 @@
 		DF2D6E2429FC266D005C6220 /* LocalizedStringGenerator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LocalizedStringGenerator.entitlements; sourceTree = "<group>"; };
 		DF2D6E2B29FC2995005C6220 /* GPTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTService.swift; sourceTree = "<group>"; };
 		DF2D6E2E29FC2A8E005C6220 /* ChatCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCompletion.swift; sourceTree = "<group>"; };
-		DF2D6E3029FC2B07005C6220 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		DF3AE63329FD46660007BBEA /* GlobalStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStrings.swift; sourceTree = "<group>"; };
 		DF878A6F29FC7F9500811983 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		DF878A7129FC829200811983 /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 				DF2D6E1F29FC266D005C6220 /* Assets.xcassets */,
 				DF2D6E2429FC266D005C6220 /* LocalizedStringGenerator.entitlements */,
 				DF2D6E2129FC266D005C6220 /* Preview Content */,
-				DF2D6E3029FC2B07005C6220 /* Singleton.swift */,
 			);
 			path = LocalizedStringGenerator;
 			sourceTree = "<group>";
@@ -263,7 +260,6 @@
 				DF878A7B29FC852B00811983 /* CoordinatorViewModel.swift in Sources */,
 				DF878A7E29FC919800811983 /* HomeView.swift in Sources */,
 				DF2D6E1C29FC266B005C6220 /* LocalizedStringGeneratorApp.swift in Sources */,
-				DF2D6E3129FC2B07005C6220 /* Singleton.swift in Sources */,
 				DF878A7629FC841600811983 /* ResultView.swift in Sources */,
 				DF3AE63429FD46660007BBEA /* GlobalStrings.swift in Sources */,
 				DF878A7229FC829200811983 /* TranslateService.swift in Sources */,
@@ -400,7 +396,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalizedStringGenerator/Preview Content\"";
-				DEVELOPMENT_TEAM = 6525BU9D84;
+				DEVELOPMENT_TEAM = 7UW5874D4F;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -411,6 +407,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcelo.langify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,7 +427,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalizedStringGenerator/Preview Content\"";
-				DEVELOPMENT_TEAM = 6525BU9D84;
+				DEVELOPMENT_TEAM = 7UW5874D4F;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -441,6 +438,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcelo.langify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
