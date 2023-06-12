@@ -16,7 +16,6 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             VStack {
-                
                 Text("Welcome to")
                     .foregroundColor(.white)
                     .font(.system(size: 24, weight: .regular))
@@ -28,13 +27,10 @@ struct HomeView: View {
                     .padding(.bottom, 80)
                 
                 HStack {
-                    LGButton(
-                        title: "Start",
-                        action: {
-                            viewModel.currentPage = .text
-                        },
-                        isClear: false
-                    )
+                    Button("Start") {
+                        viewModel.currentPage = .text
+                    }
+                    .buttonStyle(.lgButton)
                 }
             }
         }

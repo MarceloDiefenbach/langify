@@ -27,14 +27,15 @@ struct ResultView: View {
                 Spacer()
                 
                 HStack {
-                    LGButton(title: "Back to text editor view", action: {
+                    Button("Back to text editor view") {
                         viewModel.currentPage = .text
-                    }, isClear: true)
+                    }
+                    .buttonStyle(.lgClearButton)
                     
-                    LGButton(title: "Copy to clipboard", action: {
+                    Button("Copy to clipboard") {
                         TranslateService.shared.copyKeyValueStringToClipboard()
-                    }, isClear: false)
-                    
+                    }
+                    .buttonStyle(.lgClearButton)
                 }
                 .padding(.vertical, 32)
             }
