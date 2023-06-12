@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DF06C66C2A254DCB001871C9 /* SendFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF06C66B2A254DCB001871C9 /* SendFile.swift */; };
 		DF2D6E1C29FC266B005C6220 /* LocalizedStringGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D6E1B29FC266B005C6220 /* LocalizedStringGeneratorApp.swift */; };
 		DF2D6E1E29FC266B005C6220 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D6E1D29FC266B005C6220 /* TextView.swift */; };
 		DF2D6E2029FC266D005C6220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2D6E1F29FC266D005C6220 /* Assets.xcassets */; };
@@ -19,11 +18,9 @@
 		DF878A7B29FC852B00811983 /* CoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878A7A29FC852B00811983 /* CoordinatorViewModel.swift */; };
 		DF878A7E29FC919800811983 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878A7D29FC919800811983 /* HomeView.swift */; };
 		DF878A8229FC96A400811983 /* LGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878A8129FC96A400811983 /* LGButton.swift */; };
-		DFCDCFBA29FDCB050058087F /* IconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCDCFB929FDCB050058087F /* IconsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DF06C66B2A254DCB001871C9 /* SendFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFile.swift; sourceTree = "<group>"; };
 		DF2D6E1829FC266B005C6220 /* Langify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Langify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2D6E1B29FC266B005C6220 /* LocalizedStringGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStringGeneratorApp.swift; sourceTree = "<group>"; };
 		DF2D6E1D29FC266B005C6220 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
@@ -37,7 +34,6 @@
 		DF878A7A29FC852B00811983 /* CoordinatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewModel.swift; sourceTree = "<group>"; };
 		DF878A7D29FC919800811983 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DF878A8129FC96A400811983 /* LGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGButton.swift; sourceTree = "<group>"; };
-		DFCDCFB929FDCB050058087F /* IconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +101,6 @@
 				DF878A8329FC9A7600811983 /* TextView */,
 				DF878A7C29FC919100811983 /* Home */,
 				DF878A7429FC840B00811983 /* Result */,
-				DFCDCFB929FDCB050058087F /* IconsView.swift */,
-				DF06C66B2A254DCB001871C9 /* SendFile.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -236,9 +230,7 @@
 				DF2D6E1E29FC266B005C6220 /* TextView.swift in Sources */,
 				DF878A7929FC852100811983 /* CoordinatorView.swift in Sources */,
 				DF878A7029FC7F9500811983 /* UserSettings.swift in Sources */,
-				DF06C66C2A254DCB001871C9 /* SendFile.swift in Sources */,
 				DF878A8229FC96A400811983 /* LGButton.swift in Sources */,
-				DFCDCFBA29FDCB050058087F /* IconsView.swift in Sources */,
 				DF878A7B29FC852B00811983 /* CoordinatorViewModel.swift in Sources */,
 				DF878A7E29FC919800811983 /* HomeView.swift in Sources */,
 				DF2D6E1C29FC266B005C6220 /* LocalizedStringGeneratorApp.swift in Sources */,
