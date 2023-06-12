@@ -9,36 +9,31 @@ import Foundation
 import SwiftUI
 
 struct ResultView: View {
-    
     @EnvironmentObject var viewModel: CoordinatorViewModel
     
     var body: some View {
-        ZStack {
-            VStack {
-                
-                ScrollView(.vertical) {
-                    VStack(spacing: 10) {
-                        Text(viewModel.translated)
-                            .foregroundColor(.white)
-                    }.padding(.top, 32)
-                }
-                .frame(maxHeight: 600)
-                
-                Spacer()
-                
-                HStack {
-                    Button("Back to text editor view") {
-                        viewModel.currentPage = .text
-                    }
-                    .buttonStyle(.lgClearButton)
-                    
-                    Button("Copy to clipboard") {
-                        TranslateService.shared.copyKeyValueStringToClipboard()
-                    }
-                    .buttonStyle(.lgClearButton)
-                }
-                .padding(.vertical, 32)
+        VStack {
+            ScrollView(.vertical) {
+                Text(viewModel.translated)
+                    .foregroundColor(.white)
+                    .padding(.top, 32)
             }
+            .frame(maxHeight: 600)
+            
+            Spacer()
+            
+            HStack {
+                Button("Back to text editor view") {
+                    viewModel.currentPage = .text
+                }
+                .buttonStyle(.lgClearButton)
+                
+                Button("Copy to clipboard") {
+                    TranslateService.shared.copyKeyValueStringToClipboard()
+                }
+                .buttonStyle(.lgClearButton)
+            }
+            .padding(.vertical, 32)
         }
         .frame(width: 800, height: 600)
     }

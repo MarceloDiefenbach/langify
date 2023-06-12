@@ -34,4 +34,4 @@ enum Language: String, CaseIterable {
                 return "Korean"
         }
     }
-    }
+}

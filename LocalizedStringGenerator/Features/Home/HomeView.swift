@@ -9,9 +9,7 @@ import Foundation
 import SwiftUI
 
 struct HomeView: View {
-    
     @EnvironmentObject var viewModel: CoordinatorViewModel
-    @State var showAlert: Bool = false
     
     var body: some View {
         VStack {
