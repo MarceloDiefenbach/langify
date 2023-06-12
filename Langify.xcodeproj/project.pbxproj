@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8955E50D2A37D9B1004568C4 /* LanguageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E50C2A37D9B1004568C4 /* LanguageSelector.swift */; };
+		8955E5102A37DA1A004568C4 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E50F2A37DA1A004568C4 /* Language.swift */; };
 		DF2D6E1C29FC266B005C6220 /* LocalizedStringGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D6E1B29FC266B005C6220 /* LocalizedStringGeneratorApp.swift */; };
 		DF2D6E1E29FC266B005C6220 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D6E1D29FC266B005C6220 /* TextView.swift */; };
 		DF2D6E2029FC266D005C6220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2D6E1F29FC266D005C6220 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8955E50C2A37D9B1004568C4 /* LanguageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelector.swift; sourceTree = "<group>"; };
+		8955E50F2A37DA1A004568C4 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		DF2D6E1829FC266B005C6220 /* Langify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Langify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2D6E1B29FC266B005C6220 /* LocalizedStringGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStringGeneratorApp.swift; sourceTree = "<group>"; };
 		DF2D6E1D29FC266B005C6220 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
@@ -47,6 +51,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8955E50B2A37D98B004568C4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8955E50C2A37D9B1004568C4 /* LanguageSelector.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8955E50E2A37DA10004568C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8955E50F2A37DA1A004568C4 /* Language.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DF2D6E0F29FC266B005C6220 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +86,7 @@
 		DF2D6E1A29FC266B005C6220 /* LocalizedStringGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				8955E50E2A37DA10004568C4 /* Model */,
 				DF878A7F29FC969300811983 /* DesignSystem */,
 				DF878A7729FC851900811983 /* Coordinator */,
 				DF878A7329FC840500811983 /* Features */,
@@ -133,17 +154,10 @@
 		DF878A7F29FC969300811983 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
-				DF878A8029FC969900811983 /* Components */,
-			);
-			path = DesignSystem;
-			sourceTree = "<group>";
-		};
-		DF878A8029FC969900811983 /* Components */ = {
-			isa = PBXGroup;
-			children = (
+				8955E50B2A37D98B004568C4 /* Components */,
 				DF878A8129FC96A400811983 /* LGButton.swift */,
 			);
-			path = Components;
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 		DF878A8329FC9A7600811983 /* TextView */ = {
@@ -229,6 +243,7 @@
 			files = (
 				DF2D6E1E29FC266B005C6220 /* TextView.swift in Sources */,
 				DF878A7929FC852100811983 /* CoordinatorView.swift in Sources */,
+				8955E50D2A37D9B1004568C4 /* LanguageSelector.swift in Sources */,
 				DF878A7029FC7F9500811983 /* UserSettings.swift in Sources */,
 				DF878A8229FC96A400811983 /* LGButton.swift in Sources */,
 				DF878A7B29FC852B00811983 /* CoordinatorViewModel.swift in Sources */,
@@ -236,6 +251,7 @@
 				DF2D6E1C29FC266B005C6220 /* LocalizedStringGeneratorApp.swift in Sources */,
 				DF878A7629FC841600811983 /* ResultView.swift in Sources */,
 				DF878A7229FC829200811983 /* TranslateService.swift in Sources */,
+				8955E5102A37DA1A004568C4 /* Language.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

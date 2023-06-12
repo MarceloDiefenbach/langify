@@ -18,11 +18,10 @@ struct LocalizedString: Hashable {
 }
 
 struct TextView: View {
-    
     @EnvironmentObject var viewModel: CoordinatorViewModel
     
     @State private var isChecked = false
-    @State var selectedCategory: CategorySelector.Category = .english
+    @State var selectedCategory: Language = .english
     let maxCharacters: Int = 1000
     @State var isTranslating: Bool = false
     
@@ -47,7 +46,7 @@ struct TextView: View {
                                     }
                     HStack {
                         Text("Translate to")
-                        CategorySelector(selectedCategory: $selectedCategory)
+                        LanguageSelector(selectedLanguage: $selectedCategory)
 
                         Spacer()
                         HStack {
@@ -105,55 +104,3 @@ struct ContentView_Previews: PreviewProvider {
         TextView()
     }
 }
-
-struct CategorySelector: View {
-    enum Category: String, CaseIterable {
-        case english = "en"
-        case portuguese = "pt"
-        case spanish = "es"
-        case french = "fr"
-        case japanese = "ja"
-        case russian = "ru"
-        case korean = "ko"
-        
-        var title: String {
-            switch self {
-            case .english:
-                return "English"
-            case .portuguese:
-                return "Portuguese"
-            case .spanish:
-                return "Spanish"
-            case .french:
-                return "French"
-            case .japanese:
-                return "Japanese"
-            case .russian:
-                return "Russian"
-            case .korean:
-                return "Korean"
-            }
-        }
-    }
-
-    
-    @Binding var selectedCategory: Category
-    
-    var body: some View {
-        Picker("", selection: $selectedCategory) {
-            ForEach(Category.allCases, id: \.self) { category in
-                Text(category.title).tag(category)
-            }
-        }
-        .pickerStyle(DefaultPickerStyle())
-    }
-}
-
-//"singleDeviceTitle" = "Um dispositivo";
-//"singleDeviceDescription" = "Jogue localmente";
-//"multiplayerTitle" = "Multiplayer";
-//"multiplayerDescription" = "Vários disposivos onlie";
-//"howToPlayButton" = "Como jogar?";
-////MARK: - titulo da parte
-//"storeButton" = "Loja";
-//"aboutUsButton" = "Sobre nós";
