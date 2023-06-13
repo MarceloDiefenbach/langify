@@ -12,7 +12,6 @@ class UserDefaultsService {
     // MARK: - Singleton
     
     static let shared = UserDefaultsService()
-    static let StringAPIKEY = GlobalStrings.shared.APIKEY
     private init() {}
     
     // MARK: - Properties

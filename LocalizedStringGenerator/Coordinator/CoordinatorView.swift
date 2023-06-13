@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-enum WhatPage {
+enum Page {
     case home, text, result
 }
 
