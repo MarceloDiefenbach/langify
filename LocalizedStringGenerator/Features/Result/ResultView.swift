@@ -9,35 +9,49 @@ import Foundation
 import SwiftUI
 
 struct ResultView: View {
-    
     @EnvironmentObject var viewModel: CoordinatorViewModel
     
     var body: some View {
-        ZStack {
+        VStack {
             VStack {
-                
-                ScrollView(.vertical) {
-                    VStack(spacing: 10) {
-                        Text(viewModel.translated)
-                            .foregroundColor(.white)
-                    }.padding(.top, 32)
-                }
-                .frame(maxHeight: 600)
-                
-                Spacer()
-                
                 HStack {
-                    LGButton(title: "Back to text editor view", action: {
-                        viewModel.currentPage = .text
-                    }, isClear: true)
-                    
-                    LGButton(title: "Copy to clipboard", action: {
-                        TranslateService.shared.copyKeyValueStringToClipboard()
-                    }, isClear: false)
-                    
+                    Text("Chave")
+                        .multilineTextAlignment(.leading)
+                        .padding(.all)
+                        .frame(width: 190)
+                        .background(Color.white.opacity(0.1))
+                        .cornerRadius(8)
+                    Text("Original")
+                        .multilineTextAlignment(.leading)
+                        .padding(.all)
+                        .frame(width: 190)
+                        .background(Color.white.opacity(0.1))
+                        .cornerRadius(8)
+                    Text("Traduzido")
+                        .multilineTextAlignment(.leading)
+                        .padding(.all)
+                        .frame(width: 190)
+                        .background(Color.white.opacity(0.1))
+                        .cornerRadius(8)
                 }
-                .padding(.vertical, 32)
+                ForEach(viewModel.translatedTextDictionary.sorted(by: <), id: \.key) { key, value in
+                    ResultRow(key: key, value: viewModel.originalTextDictionary[key] ?? "", translatedValue: value)
+                }
             }
+            .frame(maxHeight: 600)
+            
+            HStack {
+                Button("Back to text editor view") {
+                    viewModel.currentPage = .text
+                }
+                .buttonStyle(.lgClearButton)
+                
+                Button("Copy to clipboard") {
+                    TranslateService.shared.copyKeyValueStringToClipboard()
+                }
+                .buttonStyle(.lgClearButton)
+            }
+            .padding(.vertical, 32)
         }
         .frame(width: 800, height: 600)
     }

@@ -18,84 +18,123 @@ struct LocalizedString: Hashable {
 }
 
 struct TextView: View {
-    
     @EnvironmentObject var viewModel: CoordinatorViewModel
     
     @State private var isChecked = false
-    @State var selectedCategory: CategorySelector.Category = .english
-    let maxCharacters: Int = 1000
-    @State var isTranslating: Bool = false
+    @State private var selectedCategory: Language = .english
+    @State private var isTranslating: Bool = false
     
     var body: some View {
-        ZStack {
+        VStack {
+            Text("Paste here your default LocalizedStrings")
+                .font(.title3)
+                .fontWeight(.bold)
+            
+            TextEditor(text: $viewModel.text)
+                .font(.body)
+                .background(Color.primary.colorInvert())
+                .cornerRadius(8)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(.black, lineWidth: 1 / 3)
+                        .opacity(0.3)
+                )
+            
             HStack {
-                VStack {
-                    Text("Paste here your default LocalizedStrings")
-                    TextEditor(text: $viewModel.text)
-                        .font(.body)
-                        .background(Color.primary.colorInvert())
-                        .cornerRadius(8)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(.black, lineWidth: 1 / 3)
-                                .opacity(0.3)
-                        )
-                        .onChange(of: viewModel.text) { newText in
-                                        if newText.count > maxCharacters {
-                                            viewModel.text = String(newText.prefix(maxCharacters))
-                                        }
-                                    }
-                    HStack {
-                        Text("Translate to")
-                        CategorySelector(selectedCategory: $selectedCategory)
-
-                        Spacer()
-                        HStack {
-                            Text("Translate")
-                                .foregroundColor(.white)
-                                .padding(.vertical, 8)
-                                .padding(.horizontal, 24)
-                        }
-                        .background(.blue)
-                        .cornerRadius(16)
-                        .onTapGesture(perform: {
-                            self.isTranslating = true
-                            
-                        
-                            TranslateService.shared.translateLocalizableStrings(text: viewModel.text, targetLanguage: selectedCategory.rawValue) { translatedText, error in
-                                if let error = error {
-                                    // Lidar com o erro
-                                    print("Erro durante a tradução: \(error)")
-                                    return
-                                }
-                                
-                                if let translatedText = translatedText {
-                                    // Faça algo com o texto traduzido retornado
-                                    DispatchQueue.main.async {
-                                        viewModel.translated = translatedText
-                                        self.isTranslating = false
-                                        print("Texto traduzido: \(viewModel.translated)")
-                                        viewModel.currentPage = .result
-                                        TranslateService.shared.copyKeyValueStringToClipboard()
-                                    }
-                                } else {
-                                    // Caso não seja possível obter o texto traduzido
-                                    print("Não foi possível obter o texto traduzido")
-                                }
-                            }
-                        })
-                    }
+                Text("Translate to")
+                
+                LanguageSelector(selectedLanguage: $selectedCategory)
+                
+                Spacer()
+                
+                HStack {
+                    Text("Translate")
+                        .foregroundColor(.white)
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 24)
                 }
+                .background(.blue)
+                .cornerRadius(16)
+                .onTapGesture { onTapTranslate() }
             }
-            .padding(.all, 20)
-            if self.isTranslating {
+            .padding(.top, 10)
+        }
+        .padding(20)
+        .overlay {
+            if isTranslating {
                 ZStack {
                     Color.blue.opacity(0.3)
                     ProgressView("Translating")
                         .padding()
-                }.ignoresSafeArea()
+                }
+                .ignoresSafeArea()
             }
         }
+    }
+    
+    func onTapTranslate() {
+        self.isTranslating = true
+        
+        TranslateService
+            .shared
+            .translateLocalizableStringsWithDictionary(
+                text: viewModel.text,
+                targetLanguage: selectedCategory.rawValue
+            ) { translatedText, error in
+            
+            if let error = error {
+                // Lidar com o erro
+                print("Erro durante a tradução: \(error)")
+                return
+            }
+            
+            if let translatedText = translatedText {
+                // Faça algo com o texto traduzido retornado
+                DispatchQueue.main.async {
+                    viewModel.originalTextDictionary = createDictionary(from: viewModel.text)
+                    viewModel.translatedTextDictionary = createDictionary(from: translatedText)
+                    
+                    viewModel.translatedText = translatedText
+                    self.isTranslating = false
+                    viewModel.currentPage = .result
+                    TranslateService.shared.copyKeyValueStringToClipboard()
+                }
+            } else {
+                // Caso não seja possível obter o texto traduzido
+                print("Não foi possível obter o texto traduzido")
+            }
+        }
+    }
+    
+    func createDictionary(from string: String) -> [String: String] {
+        var dictionary = [String: String]()
+        
+        // Dividir a string por ponto e vírgula para obter pares chave-valor individuais
+        let keyValuePairs = string.components(separatedBy: ";")
+        
+        // Percorrer cada par chave-valor
+        for pair in keyValuePairs {
+            // Dividir o par em chave e valor usando "=" como separador
+            let components = pair.components(separatedBy: "=")
+            
+            // Verificar se o par é válido
+            if components.count == 2 {
+                // Remover espaços em branco extras e caracteres de escape
+                let key = components[0].trimmingCharacters(in: .whitespacesAndNewlines)
+                let value = components[1].trimmingCharacters(in: .whitespacesAndNewlines)
+                
+                // Remover as aspas duplas do início e fim do valor
+                let sanitizedValue = value.replacingOccurrences(of: "\"", with: "")
+                
+                // Remover as aspas duplas do início e fim da chave
+                let sanitizedKey = key.replacingOccurrences(of: "\"", with: "")
+                
+                // Adicionar o par chave-valor ao dicionário
+                dictionary[sanitizedKey] = sanitizedValue
+            }
+        }
+        
+        return dictionary
     }
     
 }
@@ -105,55 +144,3 @@ struct ContentView_Previews: PreviewProvider {
         TextView()
     }
 }
-
-struct CategorySelector: View {
-    enum Category: String, CaseIterable {
-        case english = "en"
-        case portuguese = "pt"
-        case spanish = "es"
-        case french = "fr"
-        case japanese = "ja"
-        case russian = "ru"
-        case korean = "ko"
-        
-        var title: String {
-            switch self {
-            case .english:
-                return "English"
-            case .portuguese:
-                return "Portuguese"
-            case .spanish:
-                return "Spanish"
-            case .french:
-                return "French"
-            case .japanese:
-                return "Japanese"
-            case .russian:
-                return "Russian"
-            case .korean:
-                return "Korean"
-            }
-        }
-    }
-
-    
-    @Binding var selectedCategory: Category
-    
-    var body: some View {
-        Picker("", selection: $selectedCategory) {
-            ForEach(Category.allCases, id: \.self) { category in
-                Text(category.title).tag(category)
-            }
-        }
-        .pickerStyle(DefaultPickerStyle())
-    }
-}
-
-//"singleDeviceTitle" = "Um dispositivo";
-//"singleDeviceDescription" = "Jogue localmente";
-//"multiplayerTitle" = "Multiplayer";
-//"multiplayerDescription" = "Vários disposivos onlie";
-//"howToPlayButton" = "Como jogar?";
-////MARK: - titulo da parte
-//"storeButton" = "Loja";
-//"aboutUsButton" = "Sobre nós";

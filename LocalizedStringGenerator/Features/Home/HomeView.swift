@@ -17,6 +17,10 @@ struct HomeView: View {
     @State private var selectedCategory: Language = .english
     @State private var isTranslating: Bool = false
     
+    @State private var isChecked = false
+    @State private var selectedCategory: Language = .english
+    @State private var isTranslating: Bool = false
+    
     var body: some View {
         ZStack {
             VStack {
