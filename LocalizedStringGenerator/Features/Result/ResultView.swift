@@ -13,32 +13,14 @@ struct ResultView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                HStack {
-                    Text("Chave")
-                        .multilineTextAlignment(.leading)
-                        .padding(.all)
-                        .frame(width: 190)
-                        .background(Color.white.opacity(0.1))
-                        .cornerRadius(8)
-                    Text("Original")
-                        .multilineTextAlignment(.leading)
-                        .padding(.all)
-                        .frame(width: 190)
-                        .background(Color.white.opacity(0.1))
-                        .cornerRadius(8)
-                    Text("Traduzido")
-                        .multilineTextAlignment(.leading)
-                        .padding(.all)
-                        .frame(width: 190)
-                        .background(Color.white.opacity(0.1))
-                        .cornerRadius(8)
-                }
-                ForEach(viewModel.translatedTextDictionary.sorted(by: <), id: \.key) { key, value in
-                    ResultRow(key: key, value: viewModel.originalTextDictionary[key] ?? "", translatedValue: value)
-                }
+            ScrollView(.vertical) {
+                Text(viewModel.translated)
+                    .foregroundColor(.white)
+                    .padding(.top, 32)
             }
             .frame(maxHeight: 600)
+            
+            Spacer()
             
             HStack {
                 Button("Back to text editor view") {

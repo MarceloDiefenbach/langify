@@ -20,7 +20,6 @@
 		DF878A7B29FC852B00811983 /* CoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878A7A29FC852B00811983 /* CoordinatorViewModel.swift */; };
 		DF878A7E29FC919800811983 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878A7D29FC919800811983 /* HomeView.swift */; };
 		DF878A8229FC96A400811983 /* LGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF878A8129FC96A400811983 /* LGButton.swift */; };
-		DFA740B72A5C34D00018D961 /* ResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA740B62A5C34D00018D961 /* ResultRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +38,6 @@
 		DF878A7A29FC852B00811983 /* CoordinatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewModel.swift; sourceTree = "<group>"; };
 		DF878A7D29FC919800811983 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DF878A8129FC96A400811983 /* LGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGButton.swift; sourceTree = "<group>"; };
-		DFA740B62A5C34D00018D961 /* ResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				DF878A7529FC841600811983 /* ResultView.swift */,
-				DFA740B62A5C34D00018D961 /* ResultRow.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -249,7 +246,6 @@
 				8955E50D2A37D9B1004568C4 /* LanguageSelector.swift in Sources */,
 				DF878A7029FC7F9500811983 /* UserSettings.swift in Sources */,
 				DF878A8229FC96A400811983 /* LGButton.swift in Sources */,
-				DFA740B72A5C34D00018D961 /* ResultRow.swift in Sources */,
 				DF878A7B29FC852B00811983 /* CoordinatorViewModel.swift in Sources */,
 				DF878A7E29FC919800811983 /* HomeView.swift in Sources */,
 				DF2D6E1C29FC266B005C6220 /* LocalizedStringGeneratorApp.swift in Sources */,
@@ -388,7 +384,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalizedStringGenerator/Preview Content\"";
-				DEVELOPMENT_TEAM = 6525BU9D84;
+				DEVELOPMENT_TEAM = 7UW5874D4F;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -419,7 +415,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"LocalizedStringGenerator/Preview Content\"";
-				DEVELOPMENT_TEAM = 6525BU9D84;
+				DEVELOPMENT_TEAM = 7UW5874D4F;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

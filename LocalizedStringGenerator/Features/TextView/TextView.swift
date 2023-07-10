@@ -77,7 +77,7 @@ struct TextView: View {
         
         TranslateService
             .shared
-            .translateLocalizableStringsWithDictionary(
+            .translateLocalizableStrings(
                 text: viewModel.text,
                 targetLanguage: selectedCategory.rawValue
             ) { translatedText, error in
@@ -91,11 +91,9 @@ struct TextView: View {
             if let translatedText = translatedText {
                 // Faça algo com o texto traduzido retornado
                 DispatchQueue.main.async {
-                    viewModel.originalTextDictionary = createDictionary(from: viewModel.text)
-                    viewModel.translatedTextDictionary = createDictionary(from: translatedText)
-                    
-                    viewModel.translatedText = translatedText
+                    viewModel.translated = translatedText
                     self.isTranslating = false
+                    print("Texto traduzido: \(viewModel.translated)")
                     viewModel.currentPage = .result
                     TranslateService.shared.copyKeyValueStringToClipboard()
                 }
@@ -104,37 +102,6 @@ struct TextView: View {
                 print("Não foi possível obter o texto traduzido")
             }
         }
-    }
-    
-    func createDictionary(from string: String) -> [String: String] {
-        var dictionary = [String: String]()
-        
-        // Dividir a string por ponto e vírgula para obter pares chave-valor individuais
-        let keyValuePairs = string.components(separatedBy: ";")
-        
-        // Percorrer cada par chave-valor
-        for pair in keyValuePairs {
-            // Dividir o par em chave e valor usando "=" como separador
-            let components = pair.components(separatedBy: "=")
-            
-            // Verificar se o par é válido
-            if components.count == 2 {
-                // Remover espaços em branco extras e caracteres de escape
-                let key = components[0].trimmingCharacters(in: .whitespacesAndNewlines)
-                let value = components[1].trimmingCharacters(in: .whitespacesAndNewlines)
-                
-                // Remover as aspas duplas do início e fim do valor
-                let sanitizedValue = value.replacingOccurrences(of: "\"", with: "")
-                
-                // Remover as aspas duplas do início e fim da chave
-                let sanitizedKey = key.replacingOccurrences(of: "\"", with: "")
-                
-                // Adicionar o par chave-valor ao dicionário
-                dictionary[sanitizedKey] = sanitizedValue
-            }
-        }
-        
-        return dictionary
     }
     
 }
