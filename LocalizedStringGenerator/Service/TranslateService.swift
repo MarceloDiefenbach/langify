@@ -13,10 +13,10 @@ class TranslateService {
     static let shared = TranslateService()
     var translatedText: String = ""
     
-    func copyKeyValueStringToClipboard() {
+    func copyKeyValueStringToClipboard(text: String) {
         let pasteBoard = NSPasteboard.general
         pasteBoard.clearContents()
-        pasteBoard.writeObjects(["\(self.translatedText)" as NSString])
+        pasteBoard.writeObjects(["\(text)" as NSString])
         let alert = NSAlert()
         alert.messageText = "String copied to the clipboard, paste it into your corresponding language's Localizable file."
         alert.runModal()

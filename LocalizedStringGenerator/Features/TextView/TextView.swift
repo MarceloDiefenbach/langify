@@ -59,7 +59,7 @@ struct TextView: View {
             }
             .padding(.top, 10)
         }
-        .padding(20)
+        .padding(.all, 32)
         .overlay {
             if isTranslating {
                 ZStack {
@@ -77,7 +77,7 @@ struct TextView: View {
         
         TranslateService
             .shared
-            .translateLocalizableStrings(
+            .translateLocalizableStringsWithDictionary(
                 text: viewModel.text,
                 targetLanguage: selectedCategory.rawValue
             ) { translatedText, error in
@@ -91,11 +91,13 @@ struct TextView: View {
             if let translatedText = translatedText {
                 // Faça algo com o texto traduzido retornado
                 DispatchQueue.main.async {
-                    viewModel.translated = translatedText
+                    viewModel.originalTextDictionary = viewModel.createDictionary(from: viewModel.text)
+                    viewModel.translatedTextDictionary = viewModel.createDictionary(from: translatedText)
+                    
+                    viewModel.translatedText = translatedText
                     self.isTranslating = false
-                    print("Texto traduzido: \(viewModel.translated)")
                     viewModel.currentPage = .result
-                    TranslateService.shared.copyKeyValueStringToClipboard()
+                    TranslateService.shared.copyKeyValueStringToClipboard(text: translatedText)
                 }
             } else {
                 // Caso não seja possível obter o texto traduzido

@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 extension ButtonStyle where Self == LGButton {
-    static var lgButton: Self {
+    static var lgButtonPrimary: Self {
         return .init()
     }
     
-    static var lgClearButton: Self {
-        return .init(isClear: true)
+    static var lgButtonSecondary: Self {
+        return .init(backgroundColor: .white, textColor: .black)
     }
     
     static func lgButton(isClear: Bool) -> Self {
@@ -24,14 +24,17 @@ extension ButtonStyle where Self == LGButton {
 
 struct LGButton: ButtonStyle {
     var isClear: Bool = false
+    var backgroundColor: Color = .blue
+    var textColor: Color = .white
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundColor(.white)
+            .foregroundColor(textColor)
+            .font(Font.body.bold())
             .padding(.vertical, 8)
             .padding(.horizontal, 24)
             .buttonBorderShape(.roundedRectangle)
-            .background(isClear ? Color.white.opacity(0.01) : Color.blue)
+            .background(isClear ? Color.white.opacity(0.01) : backgroundColor)
             .cornerRadius(16)
             .overlay(content: {
                 if isClear {

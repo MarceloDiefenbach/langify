@@ -1,14 +1,14 @@
 //
-//  ResultRow.swift
+//  ResultHeader.swift
 //  Langify
 //
-//  Created by Marcelo Diefenbach on 10/07/23.
+//  Created by Marcelo Diefenbach on 13/07/23.
 //
 
 import Foundation
 import SwiftUI
 
-struct ResultRow: View {
+struct ResultHeader: View {
     var firstLabel: String
     var secondLabel: String
     var thirdLabel: String
@@ -21,39 +21,33 @@ struct ResultRow: View {
                     .multilineTextAlignment(.leading)
                 Spacer()
             }
-            .padding(.all)
+            .padding(.vertical)
             .frame(minWidth: 50, maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black.opacity(0.2))
-            .cornerRadius(8)
-            
+
             if showOriginalValue == true {
                 HStack {
                     Text(secondLabel)
                         .multilineTextAlignment(.leading)
                     Spacer()
                 }
-                .padding(.all)
+                .padding(.vertical)
                 .frame(minWidth: 50, maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.black.opacity(0.2))
-                .cornerRadius(8)
             }
-            
+
             HStack {
                 Text(thirdLabel)
                     .multilineTextAlignment(.leading)
                 Spacer()
             }
-            .padding(.all)
+            .padding(.vertical)
             .frame(minWidth: 50, maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black.opacity(0.2))
-            .cornerRadius(8)
         }
         .fixedSize(horizontal: false, vertical: true)
     }
 }
 
-struct ResultRow_Previews: PreviewProvider {
+struct ResultHeader_Previews: PreviewProvider {
     static var previews: some View {
-        ResultRow(firstLabel: "Example Key", secondLabel: "Example Value", thirdLabel: "Valor traduzido para a lingua escolhida", showOriginalValue: .constant(true))
+        ResultHeader(firstLabel: "Key", secondLabel: "Original value", thirdLabel: "Translated value", showOriginalValue: .constant(true))
     }
 }
