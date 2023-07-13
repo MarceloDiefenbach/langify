@@ -11,6 +11,10 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var viewModel: CoordinatorViewModel
     
+    @State private var isChecked = false
+    @State private var selectedCategory: Language = .english
+    @State private var isTranslating: Bool = false
+    
     var body: some View {
         VStack {
             Text("Welcome to")
@@ -27,10 +31,9 @@ struct HomeView: View {
                 Button("Start") {
                     viewModel.currentPage = .text
                 }
-                .buttonStyle(.lgButton)
+                .buttonStyle(.lgButtonPrimary)
             }
         }
-        .frame(width: 800, height: 600)
     }
 }
 

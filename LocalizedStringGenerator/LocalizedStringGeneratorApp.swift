@@ -12,7 +12,6 @@ struct LocalizedStringGeneratorApp: App {
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
-                .frame(width: 800, height: 600)
                 .preferredColorScheme(.dark)
         }
     }
